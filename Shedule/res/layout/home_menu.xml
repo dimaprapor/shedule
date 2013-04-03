@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="center_horizontal|center_vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Home" >
+
+    <ImageView
+        android:id="@+id/imageWeek"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="40dp"
+        android:onClick="showWeek"
+        android:src="@drawable/homeweek" />
+
+    <ImageView
+        android:id="@+id/dayButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/imageWeek"
+        android:layout_toRightOf="@+id/imageWeek"
+        android:onClick="dayClick"
+        android:src="@drawable/homeday" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageWeek"
+        android:layout_below="@+id/imageWeek"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="40dp"
+        android:src="@drawable/hometextweek" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_toRightOf="@+id/imageView3"
+        android:src="@drawable/hometextday" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/imageView3"
+        android:layout_below="@+id/imageView3"
+        android:onClick="settingClick"
+        android:src="@drawable/homesetting" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/imageView4"
+        android:layout_alignTop="@+id/imageView5"
+        android:onClick="editClick"
+        android:src="@drawable/homeclear" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView5"
+        android:layout_below="@+id/imageView5"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/hometextsetting" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/imageView7"
+        android:layout_below="@+id/imageView7"
+        android:onClick="aboutClick"
+        android:src="@drawable/homeabout" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/imageView9"
+        android:layout_toRightOf="@+id/imageView3"
+        android:onClick="closeClick"
+        android:src="@drawable/homeclose" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView9"
+        android:layout_below="@+id/imageView9"
+        android:src="@drawable/hometextabout" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView10"
+        android:layout_below="@+id/imageView10"
+        android:src="@drawable/hometextclose" />
+
+    <ImageView
+        android:id="@+id/imHomeTextEdit"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView6"
+        android:layout_alignTop="@+id/imageView7"
+        android:src="@drawable/hometextclear" />
+
+</RelativeLayout>

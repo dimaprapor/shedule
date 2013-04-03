@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imageDayWeek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="3dp"
+        android:src="@drawable/icon_for_item" />
+
+    <TextView
+        android:id="@+id/tvDayNumber"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center_horizontal"
+        android:text="1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvDayLesson"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvDayNumber"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/tvDayNumber"
+        android:gravity="center_horizontal"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="Русская литература"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvDayStartTime"
+        android:layout_width="53dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_toRightOf="@+id/tvDayNumber"
+        android:gravity="center_horizontal"
+        android:text="12:45"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvDayFinishTime"
+        android:layout_width="53dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="3dp"
+        android:gravity="center_horizontal"
+        android:text="13:10"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvDayTicher"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvDayLesson"
+        android:layout_below="@+id/tvDayNumber"
+        android:layout_marginTop="4dp"
+        android:gravity="center_horizontal"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="Крюк Татьяна Владимировна"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/showDayLineOfWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginTop="3dp"
+        android:layout_toLeftOf="@+id/tvDayFinishTime"
+        android:layout_toRightOf="@+id/tvDayStartTime"
+        android:gravity="center_horizontal"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+</RelativeLayout>

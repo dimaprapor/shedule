@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="415dp" >
+
+        <TextView
+            android:id="@+id/tvNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Название предмета:"
+            android:textAppearance="?android:attr/textAppearanceLargeInverse"
+            android:textColor="@color/textColor"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etCorrectLesson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tvNumber"
+            android:inputType="textPersonName" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/etCorrectTicher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tvLesson"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etCorrectTicher"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Введите время:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/textColor"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageDayWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvName"
+            android:layout_below="@+id/tvName"
+            android:onClick="leftClick"
+            android:src="@drawable/icon_time_start" />
+
+        <ImageView
+            android:id="@+id/ImageView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/tvName"
+            android:layout_alignTop="@+id/imageDayWeek"
+            android:onClick="rightClick"
+            android:src="@drawable/icon_time_finish" />
+
+        <TextView
+            android:id="@+id/tvCorrectLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imageDayWeek"
+            android:layout_below="@+id/imageDayWeek"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/textColor"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCorrectRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/ImageView01"
+            android:layout_below="@+id/ImageView01"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/textColor"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvLesson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/etCorrectLesson"
+            android:layout_marginLeft="5dp"
+            android:text="Преподаватель:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/textColor"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/correctRadioGroup"
+            android:layout_width="190dp"
+            android:layout_height="105dp"
+            android:layout_below="@+id/tvCorrectLeft"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/radio_group_background"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text=" Над чертой"
+                android:textColor="@color/textColor"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Под чертой"
+                android:textColor="@color/textColor"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+        </RadioGroup>
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Расписание занятий</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <color name="textColor">#dcdcdc</color>
+    <color name="freeDayColor">#ff6347</color>
+    <string name="visibilityGone">gone</string>
+    <color name="settingColorYes">#72afdd</color>
+    <color name="settingColorNo">#e54d39</color>
+    <color name="yellow">#f0ff00</color>
+
+</resources>

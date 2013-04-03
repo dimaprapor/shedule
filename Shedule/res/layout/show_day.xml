@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background" >
+
+    <ImageView
+        android:id="@+id/imageDayLast"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:onClick="leftClick"
+        android:src="@drawable/show_day_last" />
+
+    <ImageView
+        android:id="@+id/imageDayNext"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:onClick="rightClick"
+        android:src="@drawable/show_day_next" />
+
+    <ListView
+        android:id="@+id/listViewDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageDayLast"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp" >
+
+    </ListView>
+
+    <ImageView
+        android:id="@+id/imageDayWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/show_day_one" />
+
+    <TextView
+        android:id="@+id/tvDayNoLesson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/listViewDay"
+        android:layout_below="@+id/imageDayLast"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:text="У вас нет расписания на Среду, но можно создать! (Главное Меню - Создать/Изменить)"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#313131"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

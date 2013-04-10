@@ -23,6 +23,7 @@ public class ShowDay extends Activity{
 		ImageView imageWeek;
 		public static String week = "Monday";
 		ListView listview;
+		String statusWeek;
 
 		boolean flagUpdate = false;
 		static int i = 0;
@@ -50,6 +51,13 @@ public class ShowDay extends Activity{
 			i=8;
 
 		week(i);
+		Home home = new Home();
+		TextView status = (TextView) findViewById(R.id.textView1);
+		if(home.lineOfWeek.length() == 4)
+			status.setText(c.get(c.DATE) + ", " + statusWeek);
+		else
+			status.setText(c.get(c.DATE) + ", " + statusWeek + ", " + home.lineOfWeek);
+
 	}
 		
 	
@@ -58,6 +66,7 @@ public class ShowDay extends Activity{
 		if (7==i){
 			imageWeek.setImageResource(R.drawable.show_day_sixe);
 			week = "Saturday";
+			statusWeek = "Воскресенье";
 			writeOnCreat();
 
 		}
@@ -65,35 +74,41 @@ public class ShowDay extends Activity{
 		else if (2==i){
 			imageWeek.setImageResource(R.drawable.show_day_one);
 			week = "Monday";
+			statusWeek = "Понедельник";
 			writeOnCreat();
 			}
 		else if (3==i){
 			imageWeek.setImageResource(R.drawable.show_day_two);
 			week = "Tuesday";
+			statusWeek = "Вторник";
 			writeOnCreat();
 
 		}
 		else if (4==i){
 			imageWeek.setImageResource(R.drawable.show_day_three);
 			week = "Wensday";
+			statusWeek = "Среда";
 			writeOnCreat();
 
 		}
 		else if (5==i){
 			imageWeek.setImageResource(R.drawable.show_day_four);
 			week = "Thursday";
+			statusWeek = "Четверг";
 			writeOnCreat();
 
 		}
 		else if (6==i){
 			imageWeek.setImageResource(R.drawable.show_day_five);
 			week = "Friday";
+			statusWeek = "Пятница";
 			writeOnCreat();
 
 		}
 		else if (8==i){
 			imageWeek.setImageResource(R.drawable.show_day_seven);
 			week = "Sunday";
+			statusWeek = "Суббота";
 			writeOnCreat();
 
 		}

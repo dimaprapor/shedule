@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/imageDayLast"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="25dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp" >
@@ -59,6 +59,21 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#313131"
         android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/sdfsdf"
+        android:maxLines="1"
+        android:minLines="1"
+        android:paddingLeft="10dp"
+        android:text="10, Понедельник, Над чертой"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
 </RelativeLayout>

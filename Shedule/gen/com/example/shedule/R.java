@@ -60,23 +60,24 @@ public final class R {
         public static final int rb_false_line_yes=0x7f02001d;
         public static final int rb_true_line_no=0x7f02001e;
         public static final int rb_true_line_yes=0x7f02001f;
-        public static final int show_day_five=0x7f020020;
-        public static final int show_day_four=0x7f020021;
-        public static final int show_day_last=0x7f020022;
-        public static final int show_day_next=0x7f020023;
-        public static final int show_day_one=0x7f020024;
-        public static final int show_day_seven=0x7f020025;
-        public static final int show_day_sixe=0x7f020026;
-        public static final int show_day_three=0x7f020027;
-        public static final int show_day_two=0x7f020028;
-        public static final int today=0x7f020029;
+        public static final int sdfsdf=0x7f020020;
+        public static final int show_day_five=0x7f020021;
+        public static final int show_day_four=0x7f020022;
+        public static final int show_day_last=0x7f020023;
+        public static final int show_day_next=0x7f020024;
+        public static final int show_day_one=0x7f020025;
+        public static final int show_day_seven=0x7f020026;
+        public static final int show_day_sixe=0x7f020027;
+        public static final int show_day_three=0x7f020028;
+        public static final int show_day_two=0x7f020029;
+        public static final int today=0x7f02002a;
     }
     public static final class id {
-        public static final int HorizontalScrollView1=0x7f090036;
+        public static final int HorizontalScrollView1=0x7f090037;
         public static final int ImageView01=0x7f090008;
         public static final int RelativeLayout1=0x7f090001;
         public static final int ScrollView1=0x7f090000;
-        public static final int action_settings=0x7f090039;
+        public static final int action_settings=0x7f09003a;
         public static final int addRadioGroup=0x7f09000b;
         public static final int correctRadioGroup=0x7f090012;
         public static final int dayButton=0x7f090019;
@@ -85,8 +86,8 @@ public final class R {
         public static final int editText2=0x7f090005;
         public static final int etCorrectLesson=0x7f09000e;
         public static final int etCorrectTicher=0x7f09000f;
-        public static final int gridView1=0x7f090038;
-        public static final int gridView2=0x7f090037;
+        public static final int gridView1=0x7f090039;
+        public static final int gridView2=0x7f090038;
         public static final int imHomeTextEdit=0x7f090023;
         public static final int imageDayLast=0x7f090033;
         public static final int imageDayNext=0x7f090034;
@@ -113,6 +114,7 @@ public final class R {
         public static final int rectTimeFinish=0x7f090030;
         public static final int rectTimeStart=0x7f09002d;
         public static final int showDayLineOfWeek=0x7f09002c;
+        public static final int textView1=0x7f090036;
         public static final int tvCorrectLeft=0x7f090010;
         public static final int tvCorrectRight=0x7f090011;
         public static final int tvDayFinishTime=0x7f09002a;

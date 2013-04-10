@@ -22,6 +22,7 @@ import com.example.shedule.R.drawable;
 public class Home extends Activity {
 	
 	public static String lineOfWeek;
+
 	
 	private static final String TAG = "myLogs";
 	

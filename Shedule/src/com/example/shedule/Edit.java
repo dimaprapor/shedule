@@ -27,7 +27,6 @@ public class Edit extends Activity {
 	// константы ID пунктов меню
 		final int ADD_MENU_ID = 1;
 		final int ALLDELETE_MENU_ID = 2;
-		final int CANCEL_MENU_ID = 3;
 		
 	
 		TextView lbWeek, noLesson;
@@ -53,8 +52,9 @@ public class Edit extends Activity {
 		setContentView(R.layout.edit);
 	}
 	
-	protected void onStart(){
-		super.onStart();
+	
+	protected void onResume(){
+		super.onResume();
 		lbWeek = (TextView) findViewById(R.id.tvDayWeek);
 		noLesson = (TextView) findViewById(R.id.tvDayNoLesson);
 		// Заполнение List View при создании формы
@@ -64,14 +64,13 @@ public class Edit extends Activity {
 		registerForContextMenu(listview);
 
 	}
+	
 		
 	//Создание меню
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub
 		menu.add(1, ADD_MENU_ID, 0, "Добавить");
 		menu.add(1, ALLDELETE_MENU_ID, 0, "Удалить все");
-		menu.add(1, CANCEL_MENU_ID, 0, "Назад");
-
 		return super.onCreateOptionsMenu(menu);
 		}	
 	
@@ -166,11 +165,6 @@ public class Edit extends Activity {
 			
 			startActivity(new Intent(this, Add.class));
 			
-			break;
-		case CANCEL_MENU_ID:
-			finish();
-			intent = new Intent(this, Home.class);
-			startActivity(intent);
 			break;
 		case ALLDELETE_MENU_ID:
 			showDialog(1);

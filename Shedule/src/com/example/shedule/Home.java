@@ -41,29 +41,6 @@ public class Home extends Activity {
 			else
 				im.setImageResource(R.drawable.hometextnew);
 		
-		final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-		 
-        emailIntent.setType("plain/text");
-        // Кому
-        emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
-            new String[] { "dima.prapor@tut.by" });
-        // Зачем
-        emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
-            "what");
-        // О чём
-        emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,
-            "about");
-        // С чем
-/*        emailIntent.putExtra(
-            android.content.Intent.EXTRA_STREAM,
-            Uri.parse("file://"
-                + Environment.getExternalStorageDirectory()
-                + "/Клипы/SOTY_ATHD.mp4"));*/
-        
-        emailIntent.setType("text/video");
-        // Поехали!
-        Home.this.startActivity(Intent.createChooser(emailIntent,
-            "Отправка письма..."));
 
 	}
 	
@@ -92,11 +69,7 @@ public class Home extends Activity {
 	}
 	
 
-	//Обработка нажатия кнопки Back
-	@Override
-	public void onBackPressed() {
-	   showDialog(1);     
-	}
+
 	
 	protected Dialog onCreateDialog(int id) {
 		if (id == DIALOG_EXIT) {
@@ -167,7 +140,7 @@ public class Home extends Activity {
 			switch (which) {
 			// положительная кнопка
 			case Dialog.BUTTON_POSITIVE:
-				System.exit(0);
+				System.exit(2);
 				break;
 			// негаитвная кнопка
 			case Dialog.BUTTON_NEGATIVE:

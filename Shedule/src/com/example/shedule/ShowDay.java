@@ -17,8 +17,6 @@ public class ShowDay extends Activity{
 
 	private static final String TAG = "myLogs";
 
-	// константы ID пунктов меню
-		final int CANCEL_MENU_ID = 1;
 		
 	
 		TextView noLesson;
@@ -54,31 +52,6 @@ public class ShowDay extends Activity{
 		week(i);
 	}
 		
-	//Создание меню
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// TODO Auto-generated method stub
-		menu.add(1, CANCEL_MENU_ID, 0, "Назад");
-		return super.onCreateOptionsMenu(menu);
-		}	
-	
-	//Обработчик нажатия пунктов меню
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		
-		// TODO Auto-generated method stub
-		Intent intent;
-		// определения пункта меню по Id	
-		switch (item.getItemId()){
-		
-		//Обработка нажатия кнопки добавить из меню
-		case CANCEL_MENU_ID:
-			finish();
-			intent = new Intent(this, Home.class);
-			startActivity(intent);
-			break;
-		}
-			return super.onOptionsItemSelected(item);
-		}
 	
 	//Написание название недели в lbWeek
 	public void week(int i){

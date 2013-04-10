@@ -118,10 +118,7 @@ public class Add extends Activity {
 		}
 		
 		public void closeAdd(){
-			System.exit(0);
-			
-			Intent intent = new Intent(this, Edit.class);
-			startActivity(intent);
+			finish();
 		}
 		
 		public void insert(){

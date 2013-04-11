@@ -284,17 +284,14 @@ public class DBWrite extends Add {
 	}
 
 	//*********************************************Сделать проверку черты*******************
-	public boolean infoLine(Context x){
+	public String infoLine(Context x){
 		DBHelper dbHelper = new DBHelper(x);
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
-		int i = 0;
-		boolean flagInfo = false;
 				Cursor cursor = db.query("Setting", null, null, null, null, null, null);
-				
-				
-				
+			    int idLineIndex = cursor.getColumnIndex("lineOfWeek");
+			    String lineOfWeek = cursor.getString(idLineIndex);
 				db.close();		
-	return flagInfo;
+	return lineOfWeek;
 	}
 	
 

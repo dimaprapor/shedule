@@ -35,15 +35,21 @@ public class Home extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_menu);
+	}
+
+	protected void onResume(){
+		super.onResume();
 		com.example.dataBase.DBWrite dbWrite = new DBWrite();
 		im = (ImageView) findViewById(R.id.imHomeTextEdit);
 		if(dbWrite.info(this))
 			im.setImageResource(R.drawable.hometextclear);
 			else
 				im.setImageResource(R.drawable.hometextnew);
-		
+//		String c = dbWrite.infoLine(this);
+//		Log.d(TAG, ""+c );
 
 	}
+	
 	
 	protected void onStart(){
 		super.onStart();

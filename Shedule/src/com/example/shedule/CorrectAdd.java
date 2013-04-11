@@ -89,8 +89,6 @@ public class CorrectAdd extends Activity{
 			Log.d(TAG, "id = " + id);
 			dbUpdate.update(id, this, a, b, c, d);
 				finish();
-				Intent intent = new Intent(this, Edit.class);
-				startActivity(intent);
 			break;
 		case 2:
 			finish();

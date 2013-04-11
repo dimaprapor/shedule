@@ -10,7 +10,6 @@ import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -110,7 +109,8 @@ public class Add extends Activity {
 			}
 			
 			case CANCEL_MENU_ID: {
-				closeAdd();
+				showDialog(1);
+				//closeAdd();
 			}
 			}
 			return super.onOptionsItemSelected(item);
@@ -133,13 +133,23 @@ public class Add extends Activity {
 						db.insert(edit.week, null, cv);
 						dbHelper.close();
 			} 
-
+		
+		
 		protected Dialog onCreateDialog(int id) {
 				if (id == DIALOG_TIME) {	
 					Calendar c = Calendar.getInstance();
 						TimePickerDialog tpd = new TimePickerDialog(this, myCallBack, c.get(c.HOUR), c.get(c.MINUTE), true);
 					return tpd;
 					}
+				if (id == 2)
+				{
+					AlertDialog.Builder adb = new AlertDialog.Builder(this);
+					adb.setIcon(drawable.close_dialog);
+					adb.setTitle("Выход");
+					adb.setMessage("Вы уверены?");
+//					adb.setPositiveButton("Да", myClickListener);
+//					adb.setNegativeButton("Нет", myClickListener);
+					return adb.create();}
 			return super.onCreateDialog(id);
 			}
 		

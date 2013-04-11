@@ -7,13 +7,13 @@
     android:scrollbars="horizontal|vertical" >
 
     <RelativeLayout
-        android:layout_width="900dp"
+        android:layout_width="905dp"
         android:layout_height="match_parent"
         android:scrollbars="vertical" >
 
         <GridView
             android:id="@+id/gridView2"
-            android:layout_width="900dp"
+            android:layout_width="905dp"
             android:layout_height="35dp"
             android:layout_alignLeft="@+id/gridView1"
             android:layout_alignParentTop="true"
@@ -26,10 +26,11 @@
 
         <GridView
             android:id="@+id/gridView1"
-            android:layout_width="900dp"
+            android:layout_width="905dp"
             android:layout_height="450dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="30dp"
             android:horizontalSpacing="2dp"
             android:numColumns="7"

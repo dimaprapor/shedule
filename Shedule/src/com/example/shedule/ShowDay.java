@@ -47,12 +47,9 @@ public class ShowDay extends Activity{
 		i = c.get(c.DAY_OF_WEEK);
 		if(i==1)
 			i=7;
-		else if(i==7)
-			i=8;
-
 		week(i);
 		Home home = new Home();
-		TextView status = (TextView) findViewById(R.id.textView1);
+		TextView status = (TextView) findViewById(R.id.infoTV1);
 		if(home.lineOfWeek.length() == 4)
 			status.setText(c.get(c.DAY_OF_MONTH)+ ", " + statusWeek);
 		else
@@ -63,15 +60,7 @@ public class ShowDay extends Activity{
 	
 	//Написание название недели в lbWeek
 	public void week(int i){
-		if (7==i){
-			imageWeek.setImageResource(R.drawable.show_day_sixe);
-			week = "Saturday";
-			statusWeek = "Воскресенье";
-			writeOnCreat();
-
-		}
-
-		else if (2==i){
+		if (2==i){
 			imageWeek.setImageResource(R.drawable.show_day_one);
 			week = "Monday";
 			statusWeek = "Понедельник";
@@ -105,34 +94,43 @@ public class ShowDay extends Activity{
 			writeOnCreat();
 
 		}
-		else if (8==i){
-			imageWeek.setImageResource(R.drawable.show_day_seven);
+		else if (7==i){
+			imageWeek.setImageResource(R.drawable.show_day_sixe);
 			week = "Sunday";
 			statusWeek = "Суббота";
 			writeOnCreat();
 
 		}
+		else if (8==i){
+			imageWeek.setImageResource(R.drawable.show_day_seven);
+			week = "Saturday";
+			statusWeek = "Воскресенье";
+			writeOnCreat();
+
+		}
+
+
 	}
 
 	// Обработка нажатия кнопки вправо верхней части экрана
 	public void rightClick(View v){
-		if (8==i)
-			i=2;
+		if (8 == i)
+			i = 2;
 		
 		else i++;
 		week(i);
+		Log.d(TAG, "" + i + " "+ statusWeek);
 	}
 	
 	// Обработка нажатия кнопки влево верхней части экрана
 	public void leftClick(View v){
-		if (2 == i){ 
+		if (2 == i) 
 			i = 8;
-			week(i);
-		}
-		else{
-		i--;
+	
+		else i--;
 		week(i);
-		}
+		Log.d(TAG, "" + i + " "+ statusWeek);
+
 	}
 	
 	//заполнение ListView

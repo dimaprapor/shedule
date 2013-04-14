@@ -3,12 +3,13 @@
     android:id="@+id/HorizontalScrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/all_screen_background_for_home"
     android:scrollbars="horizontal|vertical" >
 
     <RelativeLayout
         android:layout_width="905dp"
         android:layout_height="match_parent"
+        android:gravity="center_horizontal"
         android:scrollbars="vertical" >
 
         <GridView
@@ -17,7 +18,6 @@
             android:layout_height="35dp"
             android:layout_alignLeft="@+id/gridView1"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="5dp"
             android:horizontalSpacing="2dp"
             android:numColumns="7"
             android:scrollbars="none" >
@@ -28,15 +28,32 @@
             android:id="@+id/gridView1"
             android:layout_width="905dp"
             android:layout_height="450dp"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
             android:horizontalSpacing="2dp"
             android:numColumns="7"
             android:verticalSpacing="2dp" >
 
         </GridView>
+
+        <TextView
+            android:id="@+id/showWeekNoLesson"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/gridView2"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="66dp"
+            android:gravity="center_horizontal"
+            android:maxLines="3"
+            android:text="У вас нет расписания, но можно создать! (Главное меню/Создать)"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#313131"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
 
     </RelativeLayout>
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@drawable/background"
+    android:background="@drawable/all_screen_background_for_home"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
@@ -17,10 +17,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="2dp"
         android:text="Понедельник"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/textColor"
+        android:textColor="#000000"
         android:textSize="35sp"
         android:textStyle="bold"
         android:typeface="normal" />
@@ -40,36 +40,66 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:id="@+id/settingImage2"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:onClick="rightClick"
         android:src="@drawable/next" />
 
     <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:id="@+id/imageRadioLine"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:onClick="leftClick"
         android:src="@drawable/last" />
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="320dp"
+        android:layout_height="67dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/back_for_dialog_button" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:onClick="addClick"
+        android:text="Добавить"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
+        android:onClick="deleteAllClick"
+        android:text="Удалить все"
+        android:textStyle="bold" />
+
     <ListView
         android:id="@+id/lvList"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView3"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/tvDayWeek"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginTop="10dp"
-        android:footerDividersEnabled="true"
-        android:headerDividersEnabled="true" >
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp" >
 
     </ListView>
 

@@ -24,7 +24,7 @@ public class CorrectAdd extends Activity{
 	
 	public EditText ed1, ed2;
 	public TextView tv1, tv2;
-	int id;
+	int idCorrect;
 	boolean start = false, finish = false;
 	private static final String TAG = "myLogs";
 	String a,b,c,d;
@@ -40,11 +40,16 @@ public class CorrectAdd extends Activity{
 		tv1 = (TextView) findViewById(R.id.tvCorrectLeft);
 		tv2 = (TextView) findViewById(R.id.tvCorrectRight);
 		com.example.dataBase.DBWrite dbWrite = new DBWrite();
-		id = dbWrite.writeCorrect(this);
-		ed1.setText(dbWrite.e1);
-		ed2.setText(dbWrite.e2);
-		tv1.setText(dbWrite.t1);
-		tv2.setText(dbWrite.t2);
+		Edit edit = new Edit();
+		if(dbWrite.writeCorrect(this, edit.week, edit.correctId)){
+			ed1.setText(dbWrite.e1);
+			ed2.setText(dbWrite.e2);
+			tv1.setText(dbWrite.t1);
+			tv2.setText(dbWrite.t2);
+			idCorrect = edit.correctId;
+		}
+		else 
+			finish();
 	      
 
 	}
@@ -64,39 +69,23 @@ public class CorrectAdd extends Activity{
 	}
 
 	
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// TODO Auto-generated method stub
-		menu.add(1, 1, 0, "Изменить");
-		menu.add(1, 2, 0, "Отменить");
+	public void editClick(View v){
+		a = ed1.getText().toString();
+		b = ed2.getText().toString();
+		c = tv1.getText().toString();
+		d = tv2.getText().toString();
+		com.example.dataBase.DBUpdate dbUpdate = new DBUpdate();
+		Edit edit = new Edit();
+		dbUpdate.update(idCorrect, edit.week, this, a, b, c, d);
+		finish();
 
-		return super.onCreateOptionsMenu(menu);
-		}	
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		
-		// TODO Auto-generated method stub
-		// определения пункта меню по Id	
-		switch (item.getItemId()){
-		
-		//Обработка нажатия кнопки добавить из меню
-		case 1:
-			a = ed1.getText().toString();
-			b = ed2.getText().toString();
-			c = tv1.getText().toString();
-			d = tv2.getText().toString();
-			com.example.dataBase.DBUpdate dbUpdate = new DBUpdate();
-			Log.d(TAG, "id = " + id);
-			dbUpdate.update(id, this, a, b, c, d);
-				finish();
-			break;
-		case 2:
-			finish();
-			break;
-
-		}
-		return true;
 	}
+	
+	public void cancelClick(View v){
+		finish();
+	}
+	
+	
 	
 	protected Dialog onCreateDialog(int id) {
 		if (id == 1) {					

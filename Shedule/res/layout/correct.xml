@@ -1,140 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ScrollView1"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background" >
+    android:layout_height="320dp"
+    android:background="@drawable/all_screen_background_for_home" >
 
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/imageRadioLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:src="@drawable/back_for_dialog_button" />
+
+    <Button
+        android:id="@+id/btAdd"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/imageRadioLine"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="7dp"
+        android:onClick="editClick"
+        android:text="Изменить"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageRadioLine"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="7dp"
+        android:onClick="cancelClick"
+        android:text="Отмена"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Название предмета:"
+        android:textAppearance="?android:attr/textAppearanceLargeInverse"
+        android:textColor="@color/textColor"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/etCorrectLesson"
         android:layout_width="match_parent"
-        android:layout_height="415dp" >
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvNumber"
+        android:layout_marginTop="10dp"
+        android:freezesText="true"
+        android:inputType="textPersonName"
+        android:text="Введите название предмета:"
+        android:visibility="visible" >
 
-        <TextView
-            android:id="@+id/tvNumber"
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/etCorrectLesson"
+        android:text="Введите время:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/textColor"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tvLesson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvName"
+        android:text="Преподаватель:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/textColor"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <RadioGroup
+        android:id="@+id/correctRadioGroup"
+        android:layout_width="190dp"
+        android:layout_height="105dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvLesson"
+        android:background="@drawable/radio_group_background"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <RadioButton
+            android:id="@+id/radioButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:text="Название предмета:"
-            android:textAppearance="?android:attr/textAppearanceLargeInverse"
+            android:text=" Над чертой"
             android:textColor="@color/textColor"
+            android:textSize="19sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/etCorrectLesson"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/tvNumber"
-            android:inputType="textPersonName" >
-
-            <requestFocus />
-        </EditText>
-
-        <EditText
-            android:id="@+id/etCorrectTicher"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/tvLesson"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/tvName"
+        <RadioButton
+            android:id="@+id/radioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/etCorrectTicher"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:text="Введите время:"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=" Под чертой"
             android:textColor="@color/textColor"
+            android:textSize="19sp"
             android:textStyle="bold" />
+    </RadioGroup>
 
-        <ImageView
-            android:id="@+id/imageDayWeek"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tvName"
-            android:layout_below="@+id/tvName"
-            android:onClick="leftClick"
-            android:src="@drawable/icon_time_start" />
+    <EditText
+        android:id="@+id/etCorrectTicher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/correctRadioGroup"
+        android:inputType="textPersonName"
+        android:text="Введите ФИО преподователя:"
+        android:visibility="visible" />
 
-        <ImageView
-            android:id="@+id/ImageView01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/tvName"
-            android:layout_alignTop="@+id/imageDayWeek"
-            android:onClick="rightClick"
-            android:src="@drawable/icon_time_finish" />
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/etCorrectTicher"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="5dp"
+        android:onClick="rightClick"
+        android:src="@drawable/time" />
 
-        <TextView
-            android:id="@+id/tvCorrectLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/imageDayWeek"
-            android:layout_below="@+id/imageDayWeek"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/textColor"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/etCorrectTicher"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="5dp"
+        android:onClick="leftClick"
+        android:src="@drawable/time" />
 
-        <TextView
-            android:id="@+id/tvCorrectRight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/ImageView01"
-            android:layout_below="@+id/ImageView01"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/textColor"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/settingText2"
+        android:layout_alignBottom="@+id/settingText2"
+        android:layout_alignLeft="@+id/imageButton2"
+        android:layout_marginLeft="8dp"
+        android:text="Конец"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvLesson"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/etCorrectLesson"
-            android:layout_marginLeft="5dp"
-            android:text="Преподаватель:"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/textColor"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/settingText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageButton1"
+        android:layout_below="@+id/imageButton1"
+        android:text="Начало"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
-        <RadioGroup
-            android:id="@+id/correctRadioGroup"
-            android:layout_width="190dp"
-            android:layout_height="105dp"
-            android:layout_below="@+id/tvCorrectLeft"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/radio_group_background"
-            android:gravity="center_horizontal"
-            android:orientation="vertical" >
+    <TextView
+        android:id="@+id/tvCorrectLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/settingText2"
+        android:layout_below="@+id/settingText2"
+        android:text="16:43"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/textColor"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
 
-            <RadioButton
-                android:id="@+id/radioButton1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text=" Над чертой"
-                android:textColor="@color/textColor"
-                android:textSize="19sp"
-                android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tvCorrectRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageButton2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginLeft="2dp"
+        android:text="17:50"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/textColor"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Под чертой"
-                android:textColor="@color/textColor"
-                android:textSize="19sp"
-                android:textStyle="bold" />
-        </RadioGroup>
-    </RelativeLayout>
-
-</ScrollView>
+</RelativeLayout>

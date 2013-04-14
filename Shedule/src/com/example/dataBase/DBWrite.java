@@ -19,7 +19,7 @@ import com.example.shedule.R;
 public class DBWrite extends Add {
 	
 	String[] tableName = {"Monday", "Tuesday", "Wensday", "Thursday", "Friday", "Saturday", "Sunday"};
-	
+	public static int line = 0;
 	final String ATTRIBUTE_NAME_TICHER = "NAME";
 	final String ATTRIBUTE_NAME_LESSON = "TEXT";
 	final String ATTRIBUTE_NAME_NUMBER = "NUMBER";
@@ -194,9 +194,8 @@ public class DBWrite extends Add {
 				
 	
 			for(int z = 0; z < max; z++){
-				
 				for(int k = 0; k < 7; k++){
-						Cursor cursor = db.query(tableName[k], null, null, null, null, null, null);
+					Cursor cursor = db.query(tableName[k], null, null, null, null, null, null);
 						if (cursor.moveToPosition(z)) {
 								flagNull = true;
 					    	      int lessonColIndex = cursor.getColumnIndex("lesson");
@@ -239,14 +238,15 @@ public class DBWrite extends Add {
 
 	
 	//Метод чтения базы данных, подключение к базе, чтение и запись в запись в элементы, которые на CorrectAdd
-	public int writeCorrect(Context x){
+	public boolean writeCorrect(Context x, String week, int correctId){
 		DBHelper dbHelper = new DBHelper(x);
 		com.example.shedule.Edit edit = new Edit();
 		com.example.shedule.CorrectAdd cor = new CorrectAdd();
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
 		// получаем курсор
-		Cursor cursor = db.query(edit.week, null, null, null, null, null, null);
-		cursor.moveToPosition(edit.correctId);
+		boolean flag = false;
+		Cursor cursor = db.query(week, null, null, null, null, null, null);
+		if(cursor.moveToPosition(correctId)){
 	      int lessonColIndex = cursor.getColumnIndex("lesson");
 	      int ticherColIndex = cursor.getColumnIndex("ticher");
 	      int startColIndex = cursor.getColumnIndex("timestart");
@@ -259,9 +259,16 @@ public class DBWrite extends Add {
 	      e2 = cursor.getString(ticherColIndex);
 	      t1 = cursor.getString(startColIndex);
 	      t2 = cursor.getString(finishColIndex);
-
+	      
+	      flag = true;
+		}
+		else 
+			flag=false;
+	      
+	      
+	      
 	      db.close();
-	      return id;
+	      return flag;
 	}
 
 	//проверка базы данных на наличие записей
@@ -284,14 +291,26 @@ public class DBWrite extends Add {
 	}
 
 	//*********************************************Сделать проверку черты*******************
-	public String infoLine(Context x){
+	public void infoLine(Context x){
 		DBHelper dbHelper = new DBHelper(x);
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
-				Cursor cursor = db.query("Setting", null, null, null, null, null, null);
+		String lineOfWeek = "хрен";		
+		Cursor cursor = db.query("Setting", null, null, null, null, null, null);
+				if(cursor.moveToFirst()){
 			    int idLineIndex = cursor.getColumnIndex("lineOfWeek");
-			    String lineOfWeek = cursor.getString(idLineIndex);
+			    lineOfWeek = cursor.getString(idLineIndex);}
 				db.close();		
-	return lineOfWeek;
+				switch(lineOfWeek.length()){
+					case 4:	
+						line = 0;
+						break;
+					case 10:	
+						line = 1;
+						break;	
+					case 12:	
+						line = 2;
+						break;}
+				Log.d(TAG, ""+lineOfWeek+" = "+ line);
 	}
 	
 

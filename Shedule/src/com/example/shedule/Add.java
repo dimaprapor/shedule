@@ -9,6 +9,7 @@ import android.app.TimePickerDialog;
 import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -54,11 +55,10 @@ public class Add extends Activity {
 			nameLesson = (EditText) findViewById(R.id.editText1);
 			nameTicher = (EditText) findViewById(R.id.editText2);
 			tvStart = (TextView) findViewById(R.id.tvStartTime);
-			tvFinish = (TextView) findViewById(R.id.tvFinishTime);
+			tvFinish = (TextView) findViewById(R.id.textView3);
 
 		} 
 		
-				
 		protected void onStart(){
 			super.onStart();
 			Home home = new Home();
@@ -72,54 +72,36 @@ public class Add extends Activity {
 				radiogroup.setVisibility(8);}
 
 		}
-	
-				
 		
-		// Создание пунктов меню
-		public boolean onCreateOptionsMenu(Menu menu) {
-			// TODO Auto-generated method stub
-			menu.add(0, SAVE_MENU_ID, 0, "Добавить");
-			menu.add(0, CANCEL_MENU_ID, 0, "Отменить");
-			return super.onCreateOptionsMenu(menu);
-			}
-
-		// Обработки нажатия пунктов меню
-		public boolean onOptionsItemSelected(MenuItem item) {
-			
-			// TODO Auto-generated method stub
-			switch (item.getItemId()){
-			//Обработка нажатия кнопки сохранить из меню
-			case SAVE_MENU_ID:{
-				if (TextUtils.isEmpty(nameLesson.getText().toString())
-				|| TextUtils.isEmpty(nameTicher.getText().toString())){
-					Toast.makeText(this, "Заполните все поля!", Toast.LENGTH_LONG).show();
-					break;
-				}
-				
-				else if(!leftTime || !rightTime){
-					Toast.makeText(this, "Корректно заполните время!", Toast.LENGTH_LONG).show();
-					break;
-				}
-				else{
-					insert();
-					closeAdd();
-					
-
-				}
+		public void addClick(View v){
+			if (TextUtils.isEmpty(nameLesson.getText().toString())
+			|| TextUtils.isEmpty(nameTicher.getText().toString())){
+				Toast.makeText(this, "Заполните все поля!", Toast.LENGTH_LONG).show();
+				//break;
 			}
 			
-			case CANCEL_MENU_ID: {
-				showDialog(1);
-				//closeAdd();
+			else if(!leftTime || !rightTime){
+				Toast.makeText(this, "Корректно заполните время!", Toast.LENGTH_LONG).show();
+				//break;
 			}
-			}
-			return super.onOptionsItemSelected(item);
-		
+			else{
+				insert();
+				finish();}
+			
 		}
 		
-		public void closeAdd(){
+		public void cancelClick(View v){
 			finish();
 		}
+		
+		public void clearTicher(View v){
+			nameTicher.setText("");
+		}
+		
+		public void clearLesson(View v){
+			nameLesson.setText("");
+		}
+		
 		
 		public void insert(){
 						com.example.dataBase.DBHelper dbHelper = new DBHelper(this);
@@ -141,17 +123,10 @@ public class Add extends Activity {
 						TimePickerDialog tpd = new TimePickerDialog(this, myCallBack, c.get(c.HOUR), c.get(c.MINUTE), true);
 					return tpd;
 					}
-				if (id == 2)
-				{
-					AlertDialog.Builder adb = new AlertDialog.Builder(this);
-					adb.setIcon(drawable.close_dialog);
-					adb.setTitle("Выход");
-					adb.setMessage("Вы уверены?");
-//					adb.setPositiveButton("Да", myClickListener);
-//					adb.setNegativeButton("Нет", myClickListener);
-					return adb.create();}
 			return super.onCreateDialog(id);
 			}
+		
+		
 		
 		OnTimeSetListener myCallBack = new OnTimeSetListener() {
 			public void onTimeSet(TimePicker view, int hour, int minute) {

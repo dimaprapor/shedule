@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#073749" >
+    android:background="#c4c4ca" >
 
     <TextView
         android:id="@+id/rectTimeStart"
@@ -13,7 +13,7 @@
         android:layout_marginLeft="2dp"
         android:text="15:16"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:textSize="12sp"
         android:textStyle="bold" />
 
@@ -28,7 +28,7 @@
         android:maxLines="2"
         android:minHeight="40dp"
         android:text="Математика"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:textSize="14sp"
         android:textStyle="bold" />
 
@@ -44,7 +44,7 @@
         android:maxLines="1"
         android:text="Ларионова Марина Николаевна"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:textSize="13sp" />
 
     <TextView
@@ -56,7 +56,7 @@
         android:layout_marginRight="2dp"
         android:text="14:40"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:textSize="12sp"
         android:textStyle="bold" />
 

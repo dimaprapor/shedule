@@ -4,9 +4,10 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
@@ -24,11 +25,6 @@ public class Edit extends Activity {
 
 	private static final String TAG = "myLogs";
 
-	// константы ID пунктов меню
-		final int ADD_MENU_ID = 1;
-		final int ALLDELETE_MENU_ID = 2;
-		
-	
 		TextView lbWeek, noLesson;
 		public static String week = "Monday";
 		ListView listview;
@@ -66,13 +62,6 @@ public class Edit extends Activity {
 	}
 	
 		
-	//Создание меню
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// TODO Auto-generated method stub
-		menu.add(1, ADD_MENU_ID, 0, "Добавить");
-		menu.add(1, ALLDELETE_MENU_ID, 0, "Удалить все");
-		return super.onCreateOptionsMenu(menu);
-		}	
 	
 	//Создание контекстного меню
 	@Override
@@ -104,10 +93,6 @@ public class Edit extends Activity {
 			Toast.makeText(this, "Изменить", Toast.LENGTH_SHORT).show();
 			Intent intent = new Intent(this, CorrectAdd.class);
 			startActivity(intent);
-//			com.example.dataBase.DBUpdate dbUpdate = new com.example.dataBase.DBUpdate();
-//			AdapterContextMenuInfo acmi = (AdapterContextMenuInfo) item.getMenuInfo();
-//			dbUpdate.update(acmi.position, this);
-			
 		}
 	
 	return super.onContextItemSelected(item);
@@ -116,7 +101,7 @@ public class Edit extends Activity {
 	protected Dialog onCreateDialog(int idDialogDeleteAll) {
 		if (idDialogDeleteAll == 1) {
 		AlertDialog.Builder adb = new AlertDialog.Builder(this);
-		adb.setIcon(drawable.about_dialog);
+		adb.setIcon(android.R.drawable.ic_dialog_info);
 		adb.setTitle("Удаление");
 		adb.setMessage("Удалить все записи?");
 		adb.setPositiveButton("Да", myClickListener);
@@ -149,33 +134,15 @@ public class Edit extends Activity {
 
 
 	
-	//Обработчик нажатия пунктов меню
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		
-		// TODO Auto-generated method stub
-		Intent intent;
-		// определения пункта меню по Id	
-		switch (item.getItemId()){
-		
-		//Обработка нажатия кнопки добавить из меню
-		case ADD_MENU_ID:
-			Toast.makeText(this, "Добавить", Toast.LENGTH_SHORT).show();
-			// переход на Add активити
-			
-			startActivity(new Intent(this, Add.class));
-			
-			break;
-		case ALLDELETE_MENU_ID:
-			showDialog(1);
-			break;
-
-		}
-
-			return super.onOptionsItemSelected(item);
-
-		}
 	
+	public void addClick(View v){
+		Toast.makeText(this, "Добавить", Toast.LENGTH_SHORT).show();
+		startActivity(new Intent(this, Add.class));
+	}
+
+	public void deleteAllClick(View v){
+		showDialog(1);
+	}
 	//Написание название недели в lbWeek
 	public void week(int i){
 		if (0==i){
@@ -261,13 +228,13 @@ public class Edit extends Activity {
 						noLesson.setVisibility(2);
 							
 						if(i == 2) 
-									noLesson.setText("У вас нет расписания на Среду, но можно создать! (Меню - Добавить)");
+									noLesson.setText("У вас нет расписания на Среду, но можно создать! Нажмите кнопку Добавить!");
 						else if(i == 4)
-									noLesson.setText("У вас нет расписания на Пятницу, но можно создать! (Меню - Добавить)");
+									noLesson.setText("У вас нет расписания на Пятницу, но можно создать! Нажмите кнопку Добавить!");
 						else if(i == 5)
-									noLesson.setText("У вас нет расписания на Субботу, но можно создать! (Меню - Добавить)");
+									noLesson.setText("У вас нет расписания на Субботу, но можно создать! Нажмите кнопку Добавить!");
 						else
-									noLesson.setText("У вас нет расписания на " + lbWeek.getText() + ", но можно создать! (Меню - Добавить)");
+									noLesson.setText("У вас нет расписания на " + lbWeek.getText() + ", но можно создать! Нажмите кнопку Добавить!");
 
 							
 								

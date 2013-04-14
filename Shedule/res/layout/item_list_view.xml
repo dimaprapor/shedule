@@ -14,6 +14,7 @@
         android:layout_marginTop="20dp"
         android:text="30"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000"
         android:textSize="30sp" />
 
     <TextView
@@ -23,7 +24,7 @@
         android:layout_alignRight="@+id/tvName"
         android:layout_below="@+id/tvName"
         android:text="13:47"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:textSize="15sp" />
 
     <TextView
@@ -34,6 +35,7 @@
         android:layout_alignBottom="@+id/tvFinish"
         android:layout_toLeftOf="@+id/tvFinish"
         android:text=" - "
+        android:textColor="#000000"
         android:textSize="14sp" />
 
     <TextView
@@ -43,7 +45,7 @@
         android:layout_below="@+id/tvName"
         android:layout_toLeftOf="@+id/tvDayNumber"
         android:text="12:51"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:textSize="15sp" />
 
     <TextView
@@ -54,10 +56,11 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/tvNumber"
-        android:maxLines="1"
         android:ellipsize="end"
+        android:maxLines="1"
         android:text="Русская литература и лорлроп"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000"
         android:textSize="25sp"
         android:textStyle="bold" />
 
@@ -67,10 +70,11 @@
         android:layout_height="18dp"
         android:layout_alignLeft="@+id/tvLesson"
         android:layout_below="@+id/tvLesson"
-        android:maxLines="1"
         android:ellipsize="end"
+        android:maxLines="1"
         android:text="Крюк Татьяна Владимировна fgjhfhgfhgfkjgjhgjhg"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000"
         android:textSize="14sp"
         android:textStyle="bold" />
 

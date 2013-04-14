@@ -14,10 +14,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
-
 import com.example.dataBase.DBHelper;
 import com.example.dataBase.DBWrite;
-import com.example.shedule.R.drawable;
 
 public class Home extends Activity {
 	
@@ -40,16 +38,14 @@ public class Home extends Activity {
 	protected void onResume(){
 		super.onResume();
 		com.example.dataBase.DBWrite dbWrite = new DBWrite();
-		im = (ImageView) findViewById(R.id.imHomeTextEdit);
+		im = (ImageView) findViewById(R.id.settingVibration);
 		if(dbWrite.info(this))
-			im.setImageResource(R.drawable.hometextclear);
+			im.setImageResource(R.drawable.icon_home_edit);
 			else
-				im.setImageResource(R.drawable.hometextnew);
-//		String c = dbWrite.infoLine(this);
-//		Log.d(TAG, ""+c );
+				im.setImageResource(R.drawable.icon_home_new);
+		dbWrite.infoLine(this);
 
 	}
-	
 	
 	protected void onStart(){
 		super.onStart();
@@ -62,26 +58,24 @@ public class Home extends Activity {
 		// Черта - Null (отсутствие)
 		if (!cursor.moveToFirst()){
 				ContentValues cv = new ContentValues();
-				cv.put("lineOfWeek", "null");
+				cv.put("lineOfWeek", " ");
 				db.insert("Setting", null, cv);
 				dbHelper.close();
-				lineOfWeek = "null";
+				lineOfWeek = " ";
 			}
 		else{
 			cursor.moveToFirst();
 		    int line = cursor.getColumnIndex("lineOfWeek");
 			lineOfWeek = cursor.getString(line);
 			dbHelper.close();}
+		Log.d(TAG, "есть контакт!");
 		//******************************************************************************************
 	}
-	
-
-
 	
 	protected Dialog onCreateDialog(int id) {
 		if (id == DIALOG_EXIT) {
 		AlertDialog.Builder adb = new AlertDialog.Builder(this);
-		adb.setIcon(drawable.close_dialog);
+		adb.setIcon(android.R.drawable.ic_dialog_info);
 		adb.setTitle("Выход");
 		adb.setMessage("Вы уверены?");
 		adb.setPositiveButton("Да", myClickListener);
@@ -89,7 +83,7 @@ public class Home extends Activity {
 		return adb.create();}
 		else if (id == DIALOG_ABOUT) {
 			AlertDialog.Builder adb = new AlertDialog.Builder(this);
-			adb.setIcon(drawable.about_dialog);
+			adb.setIcon(android.R.drawable.ic_dialog_info);
 			adb.setTitle("Расписание занятий для ВУЗОВ и СУЗОВ");
 			adb.setMessage("Данное приложение разработано в рамках курсового проекта по дисциплине" +
 					" «Конструирование Программ и Языки Программирования»" +
@@ -109,10 +103,9 @@ public class Home extends Activity {
 		return true;
 	}
 	
-	public void showWeek(View v){
+	public void weekClick(View v){
 		Intent intent = new Intent(this, ShowWeek.class);
 		startActivity(intent);
-		Log.d(TAG, "Yes");
 	}
 	
 	public void dayClick(View v){
@@ -143,29 +136,18 @@ public class Home extends Activity {
 	OnClickListener myClickListener = new OnClickListener() {
 	public void onClick(DialogInterface dialog, int which) {
 	if(id == DIALOG_EXIT)
-		
 			switch (which) {
-			// положительная кнопка
 			case Dialog.BUTTON_POSITIVE:
 				System.exit(2);
 				break;
-			// негаитвная кнопка
 			case Dialog.BUTTON_NEGATIVE:
 				dialog.cancel();
 				break;}
-			
-	
 	else if(id == DIALOG_ABOUT)
-		
 			switch (which) {
-			// положительная кнопка
 			case Dialog.BUTTON_POSITIVE:
 				dialog.cancel();
-			break;}
-
-	
-	}
-	};
+			break;}}};
 
 
 }

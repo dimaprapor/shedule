@@ -10,12 +10,15 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import com.example.dataBase.DBHelper;
 import com.example.dataBase.DBWrite;
+import com.exemple.log.CustomExceptionHandler;
+import com.exemple.log.storage.CreateDirIfNotExists;
 
 public class Home extends Activity {
 	
@@ -31,7 +34,10 @@ public class Home extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+		CreateDirIfNotExists.CreateDirIfNotExist();
+    	Thread.setDefaultUncaughtExceptionHandler(new CustomExceptionHandler(Environment.getExternalStorageDirectory().getPath() + "/AquaReaderLog" , "http://aquagomel.ru/ISSUE/upload.php"));
+
+    	super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_menu);
 	}
 

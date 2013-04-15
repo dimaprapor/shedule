@@ -38,7 +38,8 @@ public class Add extends Activity {
 	public EditText nameTicher, nameLesson;
 	TextView tvStart, tvFinish;
 	String timeStart, timeFinish, time, day;
-	boolean start = false, finish = false, leftTime = false, rightTime = false;
+	boolean start = false, finish = false, leftTime = false, rightTime = false,
+			clearTicher = false, clearLesson = false;
 	DBHelper dbHelper;
 
 	
@@ -61,7 +62,8 @@ public class Add extends Activity {
 		
 		protected void onStart(){
 			super.onStart();
-			Home home = new Home();
+			// ***************Видимость группы для изменения черты***************
+/*			Home home = new Home();
 			RadioGroup radiogroup = (RadioGroup) findViewById(R.id.addRadioGroup);
 			String line = home.lineOfWeek;
 			if(line.length() == 10){
@@ -69,21 +71,23 @@ public class Add extends Activity {
 			else if(line.length() == 12){
 				radiogroup.setVisibility(2);}
 			else if(line.length() == 4){
-				radiogroup.setVisibility(8);}
+				radiogroup.setVisibility(8);} */
 
 		}
 		
 		public void addClick(View v){
 			if (TextUtils.isEmpty(nameLesson.getText().toString())
 			|| TextUtils.isEmpty(nameTicher.getText().toString())){
-				Toast.makeText(this, "Заполните все поля!", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, "Заполните название предмета и ФИО преподавателя", Toast.LENGTH_LONG).show();
 				//break;
 			}
 			
 			else if(!leftTime || !rightTime){
-				Toast.makeText(this, "Корректно заполните время!", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, "Корректно заполните время", Toast.LENGTH_LONG).show();
 				//break;
 			}
+			else if(!clearTicher || !clearLesson)
+				Toast.makeText(this, "Корректно заполните название предмета и ФИО преподавателя", Toast.LENGTH_LONG).show();
 			else{
 				insert();
 				finish();}
@@ -96,10 +100,12 @@ public class Add extends Activity {
 		
 		public void clearTicher(View v){
 			nameTicher.setText("");
+			clearTicher = true;
 		}
 		
 		public void clearLesson(View v){
 			nameLesson.setText("");
+			clearLesson = true;
 		}
 		
 		

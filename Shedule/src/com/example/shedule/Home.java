@@ -9,16 +9,18 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import com.example.dataBase.DBHelper;
 import com.example.dataBase.DBWrite;
 import com.exemple.log.CustomExceptionHandler;
-import com.exemple.log.storage.CreateDirIfNotExists;
 
 public class Home extends Activity {
 	
@@ -34,9 +36,9 @@ public class Home extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		CreateDirIfNotExists.CreateDirIfNotExist();
-    	Thread.setDefaultUncaughtExceptionHandler(new CustomExceptionHandler(Environment.getExternalStorageDirectory().getPath() + "/AquaReaderLog" , "http://aquagomel.ru/ISSUE/upload.php"));
-
+     	Thread.setDefaultUncaughtExceptionHandler(new CustomExceptionHandler(Environment.getExternalStorageDirectory().getPath() + "/AquaReaderLog" , "http://aquagomel.ru/ISSUE/upload.php"));
+     	
+		
     	super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_menu);
 	}
@@ -50,7 +52,7 @@ public class Home extends Activity {
 			else
 				im.setImageResource(R.drawable.icon_home_new);
 		dbWrite.infoLine(this);
-
+		
 	}
 	
 	protected void onStart(){
@@ -129,7 +131,7 @@ public class Home extends Activity {
 		startActivity(intent);
 	}
 	
-	public void aboutClick(View v){
+	public void aboutClickî(View v){
 		showDialog(2);	
 		id = 2;
 	}

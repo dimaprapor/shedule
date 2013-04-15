@@ -56,7 +56,8 @@ public class CorrectAdd extends Activity{
 	
 	protected void onStart(){
 		super.onStart();
-		Home home = new Home();
+//********************Видимость группы для изменения черты*******
+/*		Home home = new Home();
 		RadioGroup radiogroup = (RadioGroup) findViewById(R.id.correctRadioGroup);
 		String line = home.lineOfWeek;
 		if(line.length() == 10){
@@ -64,7 +65,7 @@ public class CorrectAdd extends Activity{
 		else if(line.length() == 12){
 			radiogroup.setVisibility(2);}
 		else if(line.length() == 4){
-			radiogroup.setVisibility(8);}
+			radiogroup.setVisibility(8);} */
 
 	}
 

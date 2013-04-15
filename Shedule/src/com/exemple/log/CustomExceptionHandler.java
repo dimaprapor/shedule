@@ -20,6 +20,8 @@ import org.apache.http.protocol.HTTP;
 
 import android.os.Build;
 
+import com.example.shedule.Home;
+
 public class CustomExceptionHandler implements UncaughtExceptionHandler {
 
     private UncaughtExceptionHandler defaultUEH;
@@ -36,6 +38,7 @@ public class CustomExceptionHandler implements UncaughtExceptionHandler {
         this.localPath = localPath;
         this.url = url;
         this.defaultUEH = Thread.getDefaultUncaughtExceptionHandler();
+        
     }
 
     public void uncaughtException(Thread t, Throwable e) {
@@ -54,12 +57,11 @@ public class CustomExceptionHandler implements UncaughtExceptionHandler {
         if (url != null) {
             sendToServer(stacktrace, filename);
         }
-
         defaultUEH.uncaughtException(t, e);
     }
 
     private void writeToFile(String stacktrace, String filename, String timestamp) {
-        try {
+    	try {
             BufferedWriter bos = new BufferedWriter(new FileWriter(
                     localPath + "/" + filename));
             bos.write("============================================================");
@@ -73,21 +75,23 @@ public class CustomExceptionHandler implements UncaughtExceptionHandler {
             bos.write(stacktrace);
             bos.flush();
             bos.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void sendToServer(String stacktrace, String filename) {
-        DefaultHttpClient httpClient = new DefaultHttpClient();
+    	DefaultHttpClient httpClient = new DefaultHttpClient();
         HttpPost httpPost = new HttpPost(url);
         List<NameValuePair> nvps = new ArrayList<NameValuePair>();
         nvps.add(new BasicNameValuePair("filename", filename));
-                nvps.add(new BasicNameValuePair("stacktrace", stacktrace));
+        nvps.add(new BasicNameValuePair("stacktrace", stacktrace));
         try {
             httpPost.setEntity(
                     new UrlEncodedFormEntity(nvps, HTTP.UTF_8));
             httpClient.execute(httpPost);
+    
         } catch (IOException e) {
             e.printStackTrace();
         }

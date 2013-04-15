@@ -90,10 +90,11 @@ public final class R {
         public static final int imageView3=0x7f09001f;
         public static final int imageView5=0x7f090024;
         public static final int imageView6=0x7f090025;
-        public static final int infoTV1=0x7f090019;
-        public static final int infoTV2=0x7f09001a;
-        public static final int infoTime1=0x7f09001c;
-        public static final int infoTime2=0x7f09001b;
+        public static final int infoLog=0x7f09003a;
+        public static final int infoTv1=0x7f090019;
+        public static final int infoTv2=0x7f09001c;
+        public static final int infoTv3=0x7f09001b;
+        public static final int infoTv4=0x7f09001a;
         public static final int listViewDay=0x7f09003d;
         public static final int lvList=0x7f090021;
         public static final int radioButton1=0x7f090006;
@@ -111,7 +112,6 @@ public final class R {
         public static final int settingVolume=0x7f090039;
         public static final int showDayLineOfWeek=0x7f09002f;
         public static final int showWeekNoLesson=0x7f090041;
-        public static final int textView1=0x7f09003a;
         public static final int textView2=0x7f09000b;
         public static final int textView3=0x7f09000f;
         public static final int tvCorrectLeft=0x7f090017;

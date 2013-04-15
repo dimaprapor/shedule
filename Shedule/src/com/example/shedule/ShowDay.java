@@ -49,7 +49,7 @@ public class ShowDay extends Activity{
 			i=7;
 		week(i);
 		Home home = new Home();
-		TextView status = (TextView) findViewById(R.id.infoTV1);
+		TextView status = (TextView) findViewById(R.id.infoTv1);
 		if(home.lineOfWeek.length() == 4)
 			status.setText(c.get(c.DAY_OF_MONTH)+ ", " + statusWeek);
 		else

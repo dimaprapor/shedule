@@ -104,7 +104,7 @@
             android:src="@drawable/line" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/infoLog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -132,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/imageView3"
-            android:layout_below="@+id/textView1"
+            android:layout_below="@+id/infoLog"
             android:src="@drawable/line" />
 
     </RelativeLayout>

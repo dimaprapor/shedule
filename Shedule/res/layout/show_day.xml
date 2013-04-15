@@ -58,7 +58,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/infoTV1"
+        android:id="@+id/infoTv1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

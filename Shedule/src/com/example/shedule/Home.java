@@ -4,23 +4,22 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Environment;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.dataBase.DBHelper;
 import com.example.dataBase.DBWrite;
-import com.exemple.log.CustomExceptionHandler;
 
 public class Home extends Activity {
 	
@@ -33,14 +32,19 @@ public class Home extends Activity {
 	final int DIALOG_ABOUT = 2;
 	int id;
 	ImageView im;
+	Vibrator vibro;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-     	Thread.setDefaultUncaughtExceptionHandler(new CustomExceptionHandler(Environment.getExternalStorageDirectory().getPath() + "/AquaReaderLog" , "http://aquagomel.ru/ISSUE/upload.php"));
-     	
+//********************************************Œ¡–¿¡Œ“◊»  EXEPTION***********
+		//     	Thread.setDefaultUncaughtExceptionHandler(new CustomExceptionHandler(Environment.getExternalStorageDirectory().getPath() + "/AquaReaderLog", "http://aquagomel.ru/ISSUE/upload.php"));
+//*************************************************************     	
 		
     	super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_menu);
+		
+		vibro = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE); 
+
 	}
 
 	protected void onResume(){
@@ -114,6 +118,8 @@ public class Home extends Activity {
 	public void weekClick(View v){
 		Intent intent = new Intent(this, ShowWeek.class);
 		startActivity(intent);
+//		MediaPlayer clickButtonFold = MediaPlayer.create(this, R.raw.foldsound);
+//				clickButtonFold.start();
 	}
 	
 	public void dayClick(View v){
@@ -131,7 +137,7 @@ public class Home extends Activity {
 		startActivity(intent);
 	}
 	
-	public void aboutClickÓ(View v){
+	public void aboutClick(View v){
 		showDialog(2);	
 		id = 2;
 	}

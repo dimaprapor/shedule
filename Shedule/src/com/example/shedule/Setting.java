@@ -2,6 +2,7 @@ package com.example.shedule;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface.OnClickListener;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.SoundPool;
@@ -27,6 +28,8 @@ public class Setting extends Activity {
 	RadioGroup radiogroup;
 	ImageView bt1, bt2, vibra, vol;
 	TextView tv2;
+	Vibrator vibro;
+	
 	
 	@Override
 		protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,8 @@ public class Setting extends Activity {
 			
 			vol = (ImageView) findViewById(R.id.settingVolume);
 			vibra = (ImageView) findViewById(R.id.settingVibration);
+			vibro = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE); 
+
 	}
 	
 	protected void onStart(){
@@ -117,6 +122,7 @@ public class Setting extends Activity {
 	public void vibrationOn(View v){
 		if(vibration){
 			vibra.setImageResource(R.drawable.setting_on);
+			vibro.vibrate(70);
 			vibration = false;
 		}
 		else{

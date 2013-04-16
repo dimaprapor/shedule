@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 			public DBHelper(Context context) {
 			// конструктор суперкласса
-			super(context, "dd127sfw451", null, 1);
+			super(context, "da445219s145d127sfw451", null, 1);
 			}
 			@Override
 			public void onCreate(SQLiteDatabase db) {
@@ -63,8 +63,9 @@ public class DBHelper extends SQLiteOpenHelper {
 					+ "lessonline text" + ");");
 			db.execSQL("create table Setting ("
 					+ "id integer primary key autoincrement,"
-					+ "lineOfWeek text" + ");");
-
+					+ "lineOfWeek text,"
+					+ "volume text,"
+					+ "vibrator text" + ");");
 			}
 			@Override
 			public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

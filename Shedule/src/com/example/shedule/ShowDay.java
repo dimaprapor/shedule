@@ -48,12 +48,12 @@ public class ShowDay extends Activity{
 		if(i==1)
 			i=7;
 		week(i);
-		Home home = new Home();
+		Setting setting = new Setting();
 		TextView status = (TextView) findViewById(R.id.infoTv1);
-		if(home.lineOfWeek.length() == 4)
+		if(setting.lineOfWeek.length() == 4)
 			status.setText(c.get(c.DAY_OF_MONTH)+ ", " + statusWeek);
 		else
-			status.setText(c.get(c.DAY_OF_MONTH) + ", " + statusWeek + ", " + home.lineOfWeek);
+			status.setText(c.get(c.DAY_OF_MONTH) + ", " + statusWeek + ", " + setting.lineOfWeek);
 
 	}
 		

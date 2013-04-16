@@ -3,27 +3,20 @@ package com.example.shedule;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.dataBase.DBHelper;
 import com.example.dataBase.DBWrite;
 
 public class Home extends Activity {
 	
-	public static String lineOfWeek;
 
 	
 	private static final String TAG = "myLogs";
@@ -33,6 +26,7 @@ public class Home extends Activity {
 	int id;
 	ImageView im;
 	Vibrator vibro;
+	Setting setting;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +36,10 @@ public class Home extends Activity {
 		
     	super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_menu);
-		
-		vibro = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE); 
+		vibro = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+		Setting setting = new Setting();
+		setting.defaultSetting(this);
+		setting = new Setting();
 
 	}
 
@@ -58,32 +54,7 @@ public class Home extends Activity {
 		dbWrite.infoLine(this);
 		
 	}
-	
-	protected void onStart(){
-		super.onStart();
-		//Записываю в базу  Стандартные настройки, если она пустая
-		//Суть в том, что настройки записываются один раз, а потом изменяются на вкладке Настройки
-		//******************************************************************************************
-		com.example.dataBase.DBHelper dbHelper = new DBHelper(this);
-		SQLiteDatabase db = dbHelper.getWritableDatabase();
-		Cursor cursor = db.query("Setting", null, null, null, null, null, null);
-		// Черта - Null (отсутствие)
-		if (!cursor.moveToFirst()){
-				ContentValues cv = new ContentValues();
-				cv.put("lineOfWeek", " ");
-				db.insert("Setting", null, cv);
-				dbHelper.close();
-				lineOfWeek = " ";
-			}
-		else{
-			cursor.moveToFirst();
-		    int line = cursor.getColumnIndex("lineOfWeek");
-			lineOfWeek = cursor.getString(line);
-			dbHelper.close();}
-		Log.d(TAG, "есть контакт!");
-		//******************************************************************************************
-	}
-	
+
 	protected Dialog onCreateDialog(int id) {
 		if (id == DIALOG_EXIT) {
 		AlertDialog.Builder adb = new AlertDialog.Builder(this);
@@ -116,33 +87,43 @@ public class Home extends Activity {
 	}
 	
 	public void weekClick(View v){
+//		setting.vibratorClick();
+		setting.volumeClick(this, 1);
 		Intent intent = new Intent(this, ShowWeek.class);
 		startActivity(intent);
-//		MediaPlayer clickButtonFold = MediaPlayer.create(this, R.raw.foldsound);
-//				clickButtonFold.start();
 	}
 	
 	public void dayClick(View v){
+//		setting.vibratorClick();
+		setting.volumeClick(this, 1);
 		Intent intent = new Intent(this, ShowDay.class);
 		startActivity(intent);
 	}
 	
 	public void settingClick(View v){
+//		setting.vibratorClick();
+		setting.volumeClick(this, 1);
 		Intent intent = new Intent(this, Setting.class);
 		startActivity(intent);
 	}
 	
 	public void editClick(View v){
+//		setting.vibratorClick();
+		setting.volumeClick(this, 1);
 		Intent intent = new Intent(this, Edit.class);
 		startActivity(intent);
 	}
 	
 	public void aboutClick(View v){
+//		setting.vibratorClick();
+		setting.volumeClick(this, 1);
 		showDialog(2);	
 		id = 2;
 	}
 	
 	public void closeClick(View v){
+//		setting.vibratorClick();
+		setting.volumeClick(this, 1);
 		showDialog(1);
 		id = 1;
 	}
